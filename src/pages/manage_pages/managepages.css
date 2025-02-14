@@ -1,0 +1,86 @@
+#mpTopBar{
+    width: 100vw;
+    padding: 15px 10px;
+    border-bottom: 1px var(--border-color) solid;
+    display: flex;
+    align-items: center;
+}
+#mpTopBar .action_button{
+    padding: 8px 15px;
+}
+#mpTopBar p{
+    margin-left: 10px;
+    font-size: 3em;
+}
+
+#mpMain{
+    width: 100%;
+    display: flex;
+}
+#mpSide{
+    width: 300px;
+    flex-shrink: 0;
+    padding: 10px 15px;
+}
+#mpSideSearch input{
+    width: 100%;
+    background: transparent;
+    height: 30px;
+    border: 1px var(--border-color) solid;
+    padding: 0 2%;
+}
+#mpSidePages{
+    width: 100%;
+    margin-top: 20px;
+}
+#mpSidePages p{
+    font-size: 2.7em;
+    margin-bottom: 12px;
+    line-height: 140%;
+}
+
+
+
+
+#mpPage{
+    width: 100%;
+    border-left: 3px var(--border-color) solid;
+    padding: 10px;
+}
+#mpCurrentPage{
+    font-size: 2.5em;
+}
+
+#mpFilterBar{
+    width: 100%;
+    padding: 10px 5px;
+    background-color: #fff;
+    margin: 15px 0;
+    display: flex;
+    box-shadow: var(--shadow);
+    border-radius: 5px;
+}
+#mpFilterSearch{
+    width: 100%;
+    height: 30px;
+    padding: 0 2%;
+    border: 1px var(--border-color) solid;
+    border-radius: 5px;
+}
+#mpFilterBar button{
+    padding: 8px 15px;
+    background: var(--su-bg);
+    font-size: 2.4em;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-left: 13px;
+    margin-right: 5px;
+}
+
+
+
+#mpComments{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--ext-bg);
+}

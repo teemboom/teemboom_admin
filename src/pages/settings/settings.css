@@ -1,0 +1,23 @@
+#settingsMain{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.settingsItem{
+    width: 45%;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    background: var(--ext-bg);
+    margin-bottom: 30px;
+    padding: 20px;
+}
+.settingsItem header{
+    font-size: 4em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}

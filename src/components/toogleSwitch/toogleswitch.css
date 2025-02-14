@@ -1,0 +1,26 @@
+.toggle-container {
+    width: 40px;
+    height: 18px;
+    background: var(--su-bg);
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .toggle-circle {
+    width: 22px;
+    height: 22px;
+    background: var(--ext-bg);
+    border: 1px var(--border-color) solid;
+    border-radius: 50%;
+    position: absolute;
+    top: -2px;
+    left: 0px;
+    transition: transform 0.3s ease-in-out;
+    /* background: var(--light-red); */
+  }
+  
+  .on {
+    transform: translateX(20px);
+    background: var(--light-green);
+  }

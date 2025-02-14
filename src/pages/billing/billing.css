@@ -1,0 +1,45 @@
+#bUpgradeBtn{
+    margin-left: auto;
+    background: var(--light-blue);
+}
+
+#bMain{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 5%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+#bMainMain{
+    width: 65%;
+}
+#bCurrent{
+    width: 100%;
+    height: 400px;
+    background: var(--ext-bg);
+    border-radius: 6px;
+    border: 1px var(--su-bg) solid;
+    margin-bottom: 40px;
+}
+#bUsage{
+    width: 100%;
+    height: 200px;
+    background: var(--ext-bg);
+    border-radius: 6px;
+    border: 1px var(--su-bg) solid;
+}
+
+
+#bMainSide{
+    width: 35%
+}
+#bHistory{
+    width: 100%;
+    height: 300px;
+    background: var(--ext-bg);
+    border-radius: 6px;
+    border: 1px var(--su-bg) solid;
+}

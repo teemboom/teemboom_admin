@@ -1,0 +1,60 @@
+#dashboardsidebar{
+    width: 230px;
+    height: 100vh;
+    flex-shrink: 0;
+    background-color: #fafafa;
+    box-shadow: 1px 0px 2px 2px var(--su-bg);
+}
+#dashboardsidebarHead{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px ;
+    border-bottom: 1px var(--su-bg) solid;
+}
+#dashboardsidebarHead h1{
+    font-size: 3em;
+}
+
+#dashboardsidebarNew{
+    padding: 10px 15px;
+}
+#dashboardsidebarNew button{
+    width: 100%;
+    padding: 10px 15px;
+    background: var(--light-green);
+    box-shadow: var(--shadow);
+    border-radius: 4px;
+}
+
+#dashboardsidebarDomains{
+    padding: 10px 15px;
+}
+#dashboardsidebarDomains p{
+    padding: 10px 0;
+    font-size: 3em;
+    font-weight: 600;
+    color: var(--text-color-light);
+}
+
+
+
+#Dashboard{
+    width: 100vw;
+    display: flex;
+}
+#dashboardMain{
+    padding: 10px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dashboardItem{
+    width: 45%;
+    height: 300px;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+}
