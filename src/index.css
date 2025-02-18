@@ -63,7 +63,7 @@ body{
   position: relative;
   width: fit-content;
   height: fit-content;
-  padding: 15px 20px;
+  padding: 8px 15px;
   font-size: 2.5em;
   font-weight: 600;
   border-radius: 7px;
@@ -84,4 +84,30 @@ body{
   background: #000;
   color: #eee;
   font-size: 2.45em;
+}
+
+.ERROR{
+  background: var(--light-red);
+}
+
+.SUCCESS{
+  background: var(--light-blue);
+}
+
+
+.gItem{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.gItem p{
+  font-size: 2.6em;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.gItem input{
+  width: 100%;
+  box-shadow: var(--shadow);
+  border-radius: 5px;
+  height: 30px;
+  padding: 0 8px;
 }

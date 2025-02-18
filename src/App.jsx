@@ -6,7 +6,13 @@ import Dashboard from './pages/dashboard/dashboard'
 import ManagePage from './pages/manage_pages/ManagePages'
 import Settings from './pages/settings/Settings'
 import BillingPage from './pages/billing/Billing'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import apiClient from './services/apiClient'
+import { useDispatch } from 'react-redux'
+import { setUser } from './redux/userSlice'
+import AddDomain from './pages/add_domain/AddDomain'
+import { setSite } from './redux/siteSlice'
+
 
 const NavigationSetter = () => {
   const navigate = useNavigate();
@@ -14,22 +20,72 @@ const NavigationSetter = () => {
   return null; // This component doesn't render anything
 };
 
+
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null)
-  if (isAuthenticated === true){
+  const [gettingUser, setGettingUser] = useState(false)
+  const dispatch = useDispatch()
+  async function authUser() {
+    try {
+      const user = await apiClient.get('/user/get_user')
+      if (user.data.status) {
+        dispatch(setUser(user.data.data))
+        let domains = user.data.data.owned_domains
+        if (domains?.length > 0){
+          let storageSite = localStorage.getItem('currentSite')
+          if (storageSite){
+            if (domains.includes(storageSite)){
+              await setSiteDetails(storageSite)
+              return true
+            }
+          }
+          await setSiteDetails(domains[0])
+        }
+        return true
+      } else return false
+    } catch (error) {
+      return false
+    }
+  }
+  
+  async function setSiteDetails(domain) {
+    const config = await apiClient.post('https://comments.teemboom.com/teemboom_config', { page_id: domain })
+    dispatch(setSite(config.data.data))
+  }
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      if (!gettingUser) {
+        setGettingUser(true)
+        try {
+          const userStatus = await authUser();
+          setIsAuthenticated(userStatus);
+        } catch (error) {
+          setIsAuthenticated(false);
+        }
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+
+  if (isAuthenticated === true) {
     return (
       <Router>
         <NavigationSetter />
         <Routes>
           <Route path='/' element={<Dashboard />} />
-          <Route path='/manage_pages/:id' element={<ManagePage />} />
-          <Route path='/settings/:id' element={<Settings />} />
-          <Route path='/billing/:id' element={<BillingPage />} />
+          <Route path='/add_domain' element={<AddDomain />} />
+          <Route path='/manage_pages' element={<ManagePage />} />
+          <Route path='/settings' element={<Settings />} />
+          <Route path='/billing' element={<BillingPage />} />
         </Routes>
       </Router>
     )
   }
-  else if(isAuthenticated === 'login'){
+  else if (isAuthenticated === false) {
     return <SignIn />
   }
 }

@@ -37,6 +37,7 @@
     font-size: 2.7em;
     margin-bottom: 12px;
     line-height: 140%;
+    cursor: pointer;
 }
 
 
@@ -82,5 +83,4 @@
 #mpComments{
     width: 100%;
     height: 100vh;
-    background-color: var(--ext-bg);
 }

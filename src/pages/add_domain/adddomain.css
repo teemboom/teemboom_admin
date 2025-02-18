@@ -1,0 +1,27 @@
+#addDomain{
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+}
+#addDomain h1{
+    font-size: 9em;
+    margin-bottom: 20px;
+}
+
+#addDomain h2{
+    font-size: 4.5em;
+    margin: 40px 0 20px;
+}
+
+
+.vItem{
+    margin-bottom: 20px;
+}
+.vItem header{
+    font-size: 3em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.vItem p{
+    font-size: 3em;
+}
