@@ -1,0 +1,69 @@
+#scmain{
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#scpanel{
+    width: 40%;
+    height: 500px;
+    box-shadow: var(--shadow);
+    background-color: var(--ext-bg);
+    border-radius: 7px;
+    padding: 15px 20px;
+}
+#scpanelheader{
+    font-size: 4.3em;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.scpitem{
+    display: flex;
+    padding: 10px 4px;
+    display: flex;
+}
+.scpitem header{
+    font-size: 2.5em;
+    font-weight: 600;
+    width: 250px;
+}
+.scpitemcolor{
+    width: 60px;
+    height: 25px;
+    border: 1px var(--border-color) solid;
+}
+.scpitemcolortext{
+    width: 100px;
+    height: 25px;
+    border: 1px var(--border-color) solid;
+    margin-left: 20px;
+    font-size: 2.4em;
+    padding: 0 2%;
+}
+
+
+
+.sctheme{
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+#scpreview{
+    width: 40%;
+}

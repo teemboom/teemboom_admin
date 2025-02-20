@@ -16,7 +16,7 @@ export default function AddDomain() {
         }
         const response = await apiClient.post('/site/verify_domain_dns_txt', {'domain': domainName})
         console.log(response.data)
-        navigateTo('/')
+        if (response.data.status) navigateTo('/')
     }
     async function verify_domain_url_route(){
         if (!domainName || domainName.indexOf('/') > -1 || domainName.indexOf('.') < 0){
@@ -25,7 +25,7 @@ export default function AddDomain() {
         }
         const response = await apiClient.post('/site/verify_domain_url_route', {'domain': domainName})
         console.log(response.data)
-        navigateTo('/')
+        if (response.data.status) navigateTo('/')
     }
     function verify_domain(){
         if (verificationType == 0) verify_domain_dns_txt()
@@ -47,8 +47,9 @@ export default function AddDomain() {
                     <br /><strong>Key=</strong><i>teemboom.auth</i>
                     <br /><strong>Value=</strong><i>{user._id}</i>
                 </p>
-                <div className="vItem">
-                    <input type="radio" name="vtype" id="" value="txt" onFocus={()=>setVerificationType(0)} defaultChecked />
+                <div onClick={()=>{document.getElementById('txtS').click()}} className="huy">
+                    <input type="radio" name="vtype" id="txtS" value="txt" onFocus={()=>setVerificationType(0)} defaultChecked />
+                    <p>Select This Option</p>
                 </div>
             </div>
 
@@ -59,10 +60,13 @@ export default function AddDomain() {
                     below url accessable. This url should return a 200 status.
                     You can place a HTML file here or return any response from
                     this route. Just make sure it is working and responsive.
-                    <br /><br />yoursite.com/<strong>{user._id}</strong>
+                    <br />Example: yoursite.com/<strong>{user._id}</strong>, yourwebsitename.org/<strong>{user._id}</strong>
                 </p>
-                <input type="radio" name="vtype" id="" value="txt" onFocus={()=>setVerificationType(1)} />
-            </div>
+                <div onClick={()=>{document.getElementById('urlS').click()}} className="huy">
+                    <input type="radio" name="vtype" id="urlS" value="txt" onFocus={()=>setVerificationType(1)} />
+                    <p>Select This Option</p>
+                </div>
+               </div>
 
             <div id="verifyButton" className='action_button' onClick={verify_domain}>Verify</div>
         </div>

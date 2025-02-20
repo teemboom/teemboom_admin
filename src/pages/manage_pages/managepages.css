@@ -1,5 +1,5 @@
 #mpTopBar{
-    width: 100vw;
+    width: 100%;
     padding: 15px 10px;
     border-bottom: 1px var(--border-color) solid;
     display: flex;

@@ -89,11 +89,15 @@
     font-weight: 600;
     margin-bottom: 20px;
 }
+.dashboardItem p{
+    font-size: 3em;
+    margin-top: 25px;
+}
 
 
 #dashboardNone{
     width: 100%;
-    height: 300px;
+    min-height: 200px;
     border-radius: 10px;
     display: flex;
     justify-content: center;

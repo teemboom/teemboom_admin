@@ -34,7 +34,7 @@ export default function ManagePage() {
     return (
         <>
             <div id="mpTopBar">
-                <button onClick={() => { navigateTo("/") }} className="action_button">Dashboard</button>
+                <button onClick={() => { navigateTo("/") }} className="action_button">&lt; Dashboard</button>
                 <p>{currentSite._id}</p>
             </div>
             <section id="mpMain">

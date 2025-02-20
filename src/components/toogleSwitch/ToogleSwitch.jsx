@@ -1,10 +1,12 @@
 import { useState } from "react";
 import './toogleswitch.css'
 
-export default function ToggleSwitch({status}) {
+export default function ToggleSwitch({status, onchange}) {
   const [isOn, setIsOn] = useState(status);
-  console.log(isOn)
-  const toggle = () => setIsOn(!isOn);
+  const toggle = () => {
+    setIsOn(!isOn);
+    onchange()
+  };
 
   return (
     <div 

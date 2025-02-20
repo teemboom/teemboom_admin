@@ -15,7 +15,7 @@
 
 
 .vItem{
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 .vItem header{
     font-size: 3em;
@@ -24,4 +24,15 @@
 }
 .vItem p{
     font-size: 3em;
+    line-height: 150%;
+}
+
+.huy{
+    width: fit-content;
+    margin-top: 5px;
+    display: flex;
+    gap: 14px;
+    padding: 5px;
+    border: 1px var(--su-bg) solid;
+    cursor: pointer;
 }

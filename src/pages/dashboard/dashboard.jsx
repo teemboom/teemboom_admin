@@ -44,12 +44,22 @@ export default function Dashboard() {
                             <>
                                 <div onClick={() => { navigateTo("/manage_pages") }} className="dashboardItem">
                                     <header>Manage Comments</header>
+                                    <p>Delete Comments &gt;</p>
+                                    <p>Disapprove Comments &gt;</p>
                                 </div>
                                 <div onClick={() => { navigateTo("/settings") }} className="dashboardItem">
                                     <header>Settings</header>
+                                    <p>Live Chat &gt;</p>
+                                    <p>Comment Reactions &gt;</p>
+                                    <p>Comment Clearance &gt;</p>
+                                    <p>Site Colors &gt;</p>
+                                    <p>Site Layout Selection &gt;</p>
                                 </div>
                                 <div onClick={() => { navigateTo("/billing") }} className="dashboardItem">
                                     <header>Billing</header>
+                                    <p>Change App Version / Plan  &gt;</p>
+                                    <p>Billing History  &gt;</p>
+                                    <p>Usage Statistics &gt;</p>
                                 </div>
                             </>
                         )

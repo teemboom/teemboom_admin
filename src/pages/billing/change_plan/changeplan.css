@@ -1,0 +1,68 @@
+.BPcontainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+  }
+  
+  .BPplans-grid {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+  }
+  
+  .BPplan-card {
+    min-width: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .BPplan-card.selected {
+    border: 2px solid #3b82f6;
+    transform: scale(1.05);
+  }
+  
+  .BPplan-name {
+    font-size: 5em;
+    font-weight: bold;
+  }
+  
+  .BPplan-price {
+    font-size: 8em;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .BPplan-features {
+    list-style: none;
+    font-size: 3em;
+    padding: 0;
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .BPfeature {
+    margin-bottom: 5px;
+  }
+  
+  .BPselect-button {
+    background: #3b82f6;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .select-button:hover {
+    background: #2563eb;
+  }
+  

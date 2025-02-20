@@ -21,3 +21,19 @@
     font-weight: 600;
     margin-bottom: 15px;
 }
+.settingsItem h3{
+    font-size: 4em;
+    font-weight: 600;
+}
+
+#settingsSave{
+    padding: 5px 15px;
+    margin-left: auto;
+    background: var(--light-blue);
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px #000
+}
+
+.stcursor{
+    cursor: pointer;
+}

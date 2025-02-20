@@ -18,11 +18,29 @@
 }
 #bCurrent{
     width: 100%;
-    height: 400px;
     background: var(--ext-bg);
     border-radius: 6px;
     border: 1px var(--su-bg) solid;
     margin-bottom: 40px;
+    padding: 20px;
+}
+.bCitem{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 10px 0;
+}
+#bCurrent header{
+    font-size: 4em;
+    font-weight: 600;
+}
+#bCurrent p{
+    font-size: 2.5em;
+}
+#bCurrent p i{
+    font-size: 230%;
+    font-weight: 600;
 }
 #bUsage{
     width: 100%;
@@ -30,6 +48,7 @@
     background: var(--ext-bg);
     border-radius: 6px;
     border: 1px var(--su-bg) solid;
+    padding: 20px;
 }
 
 
@@ -38,8 +57,18 @@
 }
 #bHistory{
     width: 100%;
-    height: 300px;
     background: var(--ext-bg);
     border-radius: 6px;
     border: 1px var(--su-bg) solid;
+    padding: 15px;
+}
+#BHheader{
+    font-size: 3.5em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+#bHistory p{
+    /* text-align: center; */
+    font-size: 2.5em;
+    font-weight: 600;
 }

@@ -12,6 +12,9 @@ import { useDispatch } from 'react-redux'
 import { setUser } from './redux/userSlice'
 import AddDomain from './pages/add_domain/AddDomain'
 import { setSite } from './redux/siteSlice'
+import SiteColors from './pages/settings/site_colors/SiteColors'
+import SiteLayout from './pages/settings/site_layout/SiteLayout'
+import BillingPlans from './pages/billing/change_plan/ChangePlan'
 
 
 const NavigationSetter = () => {
@@ -80,7 +83,10 @@ function App() {
           <Route path='/add_domain' element={<AddDomain />} />
           <Route path='/manage_pages' element={<ManagePage />} />
           <Route path='/settings' element={<Settings />} />
+          <Route path='/settings/site_colors' element={<SiteColors />} />
+          <Route path='/settings/site_layout' element={<SiteLayout />} />
           <Route path='/billing' element={<BillingPage />} />
+          <Route path='/billing/change_plan' element={<BillingPlans />} />
         </Routes>
       </Router>
     )

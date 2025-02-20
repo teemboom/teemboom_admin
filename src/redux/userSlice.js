@@ -19,6 +19,7 @@ const userSlice = createSlice({
             state.user = {}
             localStorage.removeItem('accessToken')
             localStorage.removeItem('refreshToken')
+            localStorage.removeItem('currentSite')
             window.location.reload()
         },
     },
