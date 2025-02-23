@@ -3,8 +3,8 @@ import "./changeplan.css";
 
 const plans = [
   { name: "Free", price: "$0", features: ["Basic support", "Limited features"] },
-  { name: "Plus", price: "$5/mo", features: ["Priority support", "More features"] },
-  { name: "Pro", price: "$11/mo", features: ["24/7 support", "All features"] },
+  { name: "Plus", price: "$11/mo", features: ["Priority support", "More features"] },
+  { name: "Pro", price: "$65/mo", features: ["24/7 support", "All features"] },
 ];
 
 export default function BillingPlans() {

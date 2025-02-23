@@ -14,7 +14,7 @@ export default function SiteColors() {
 
 
     async function fetchStylesGuide() {
-        const response = await fetch(`http://comment-themes.teemboom.com/${currentSite.theme}/styles.json`);
+        const response = await fetch(`https://comment-themes.teemboom.com/${currentSite.theme}/styles.json`);
         const data = await response.json();
         let currentSiteStyle = currentSite.style.colors.main
         for (let key of Object.keys(currentSiteStyle)){

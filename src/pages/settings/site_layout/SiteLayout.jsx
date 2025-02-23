@@ -13,11 +13,30 @@ export default function SiteLayout() {
 
     useEffect(() => {
         teemboom_comments_load(currentSite.theme)
+        let currentSiteStyle = currentSite.style.colors.main
+        for (let key of Object.keys(currentSiteStyle)){
+            const checkElement = setInterval(() => {
+                const element = document.getElementsByClassName('teemboom_root')[0];
+                if (element) {
+                    element.style.setProperty(`--teemboom-${key}`, currentSiteStyle[key]);
+                    clearInterval(checkElement); // Stop checking once found
+                }
+            }, 1000);
+        }
     }, [])
 
     async function save(){
         const response = await apiClient.post('/site/update_config', {site_id: currentSite._id, changes: {'theme': currentTheme}})
         setShowSave(false)
+
+        const resp = await fetch(`https://comment-themes.teemboom.com/${currentSite.theme}/styles.json`);
+        const stylesGuide = await resp.json();
+        let changes = {}
+        for (let item of Object.keys(stylesGuide)){
+            changes[item] = stylesGuide[item].default
+        }
+        const res = await apiClient.post('/site/update_styles', {site_id: currentSite._id, changes: changes})
+        console.log(res.data)
     }
 
     function changeTheme(name){

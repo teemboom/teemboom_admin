@@ -25,7 +25,36 @@ export default function ManagePage() {
 
     const removeComment = (id) => {
         setComments((prevComments) => prevComments.filter(comment => comment._id !== id));
-      };
+    };
+
+    function searchPages(e) {
+        const substring = e.target.value
+
+        const sortedWords = [...pages].sort((a, b) => {
+            const aHasSubstring = a.includes(substring);
+            const bHasSubstring = b.includes(substring);
+
+            // Move words with substring to the front
+            if (aHasSubstring === bHasSubstring) return 0;
+            return aHasSubstring ? -1 : 1;
+        });
+        setPages(sortedWords)
+    }
+
+    function filterComments(e) {
+        const searchTerm = e.target.value.toLowerCase(); // Convert input to lowercase
+
+        const sortedComments = [...comments].sort((a, b) => {
+            const aMatches = a.content.toLowerCase().includes(searchTerm) ||
+                a.user.username.toLowerCase().includes(searchTerm);
+            const bMatches = b.content.toLowerCase().includes(searchTerm) ||
+                b.user.username.toLowerCase().includes(searchTerm);
+
+            return bMatches - aMatches; // Puts matches first
+        });
+
+        setComments(sortedComments);
+    }
 
     useEffect(() => {
         getPages()
@@ -40,7 +69,7 @@ export default function ManagePage() {
             <section id="mpMain">
                 <div id="mpSide">
                     <div id="mpSideSearch">
-                        <input type="text" name="" id="" placeholder="Search For Page" />
+                        <input type="text" onChange={searchPages} placeholder="Search For Page" />
                     </div>
                     <div id="mpSidePages">
                         {pages.map(page => {
@@ -51,7 +80,7 @@ export default function ManagePage() {
                 <div id="mpPage">
                     <header id="mpCurrentPage">{currentPage}</header>
                     <div id="mpFilterBar">
-                        <input type="text" name="" id="mpFilterSearch" placeholder="Search comments, usernames..." />
+                        <input type="text" onChange={filterComments} id="mpFilterSearch" placeholder="Search comments, usernames..." />
                         <button>Sort By</button>
                     </div>
                     <div id="mpComments">

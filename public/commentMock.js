@@ -54,8 +54,8 @@ class teemboomCommentsClass{
 	main_div;
 	session_id = null
 	user = false
-	comments_api = 'http://comments.teemboom.com'
-	auth_api = 'http://auth.teemboom.com'
+	comments_api = 'https://comments.teemboom.com'
+	auth_api = 'https://auth.teemboom.com'
 	default_hex = ["FFCC66", "99CCCC", "FF6666", "CC99FF", "4285F4", "FF6666", "66CCCC", "FF9966", "5555FF", "66CC99"]
 
 	load(){

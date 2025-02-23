@@ -1,11 +1,13 @@
 import { navigateTo } from "../../services/navigation";
 import './settings.css'
 import MenuToogle from "../../components/menutoogle/menuToggle";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import apiClient from "../../services/apiClient";
+import { setSite } from "../../redux/siteSlice";
 
 export default function Settings() {
+    const dispatch = useDispatch()
     const currentSite = useSelector((state) => state.site.site)
     const [liveChat, setLiveChat] = useState(currentSite.live_chat)
     const [replies, setReplies] = useState(currentSite.showReplies)
@@ -21,8 +23,18 @@ export default function Settings() {
         if (showDislikes !== currentSite.showDislikes) changes.showDislikes = showDislikes
         if (commentApproval !== currentSite.comment_approval) changes.comment_approval = commentApproval
 
+        if (Object.keys(changes).length === 0) {
+            console.log('No changes to save.');
+            return;
+          }
+          
+        
         const response = await apiClient.post('/site/update_config', {site_id: currentSite._id, changes: changes})
-        console.log(response.data)
+        if (response.status === 200) {
+            // Merge changes into the current site object
+            const updatedSite = { ...currentSite, ...changes };
+            dispatch(setSite(updatedSite));
+          }
     }
 
     return (

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: "http://api-admin.teemboom.com",
+    baseURL: "https://api-admin.teemboom.com",
     headers: {
         "Content-Type": "application/json",
     },
