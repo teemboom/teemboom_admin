@@ -17,8 +17,8 @@ export default function SiteColors() {
         const response = await fetch(`https://comment-themes.teemboom.com/${currentSite.theme}/styles.json`);
         const data = await response.json();
         let currentSiteStyle = currentSite.style.colors.main
-        for (let key of Object.keys(currentSiteStyle)){
-            if (data[key]){
+        for (let key of Object.keys(data)){
+            if (currentSiteStyle[key]){
                 data[key].default = currentSiteStyle[key]
             }
             const checkElement = setInterval(() => {
@@ -62,7 +62,7 @@ export default function SiteColors() {
     }
 
     useEffect(() => {
-        teemboom_comments_load()
+        teemboom_comments_load(currentSite.theme)
         fetchStylesGuide()
     }, [])
 
@@ -72,7 +72,7 @@ export default function SiteColors() {
             changes[item] = stylesGuide[item].default
         }
         const response = await apiClient.post('/site/update_styles', {site_id: currentSite._id, changes: changes})
-        showSave(false)
+        setShowSave(false)
     }
 
     return (

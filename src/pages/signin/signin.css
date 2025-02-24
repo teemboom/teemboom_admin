@@ -35,4 +35,13 @@
     height: 40px;
     background: var(--light-blue);
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.1em;
+}
+#signinOptions button svg{
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
 }

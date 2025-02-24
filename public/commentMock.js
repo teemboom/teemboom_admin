@@ -1,5 +1,5 @@
 function teemboom_comments_load(theme=false){
-	let page_url = `commentMOCK`;
+	let page_url = `teemboom.com/comment_mock`;
 	let theme_url = 'https://comment-themes.teemboom.com'
 	let comments_api = 'https://comments.teemboom.com'
 	let config;
@@ -17,14 +17,15 @@ function teemboom_comments_load(theme=false){
 		if (theme){
 			config.theme = theme
 		}
+		document
 		let theme_css = document.createElement('link')
 		theme_css.setAttribute('href', `${theme_url}/${config.theme}/teemboom_theme.css`)
 		theme_css.setAttribute('rel', 'stylesheet')
-		theme_css.setAttribute('id', 'teemboom_css')
+		theme_css.setAttribute('class', 'teemboom_css')
 		document.head.appendChild(theme_css)
 
 		let theme_js = document.createElement('script');
-		theme_js.setAttribute('id', 'teemboom_js')
+		theme_js.setAttribute('class', 'teemboom_js')
 		theme_js.onload = ()=>{
 			teemboom_app(config)
 		}
@@ -45,7 +46,7 @@ class teemboomCommentsClass{
 		this.load()
 	}
 
-	page_url = `commentMOCK`;
+	page_url = `teemboom.com/comment_mock`;
 	socket = false;
 	send_text;
 	comments_box;

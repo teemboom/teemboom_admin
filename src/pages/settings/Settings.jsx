@@ -14,6 +14,7 @@ export default function Settings() {
     const [showLikes, setShowLikes] = useState(currentSite.showLikes)
     const [showDislikes, setShowDislikes] = useState(currentSite.showDislikes)
     const [commentApproval, setCommentApproval] = useState(currentSite.comment_approval)
+    const [identification, setIdentification] = useState(currentSite.identification === '1')
 
     async function save(){
         let changes = {}
@@ -22,7 +23,12 @@ export default function Settings() {
         if (showLikes !== currentSite.showLikes) changes.showLikes = showLikes
         if (showDislikes !== currentSite.showDislikes) changes.showDislikes = showDislikes
         if (commentApproval !== currentSite.comment_approval) changes.comment_approval = commentApproval
-
+        
+        let iden = ''
+        if (identification) iden = '1' 
+        else iden = '2' 
+        if (iden !== currentSite.identification) changes.identification = iden
+        
         if (Object.keys(changes).length === 0) {
             console.log('No changes to save.');
             return;
@@ -67,15 +73,15 @@ export default function Settings() {
                 </div>
                 <div className="settingsItem">
                     <header>Comment Clearance</header>
-                    <MenuToogle title="Approve comments before they are displayed on the webpage" status={commentApproval} onchange={()=>{setCommentApproval(!commentApproval)}} />
+                    <MenuToogle title="Approve comments before they are displayed on the webpage. Note this feature does not work with live chat on." status={commentApproval} onchange={()=>{setCommentApproval(!commentApproval)}} />
                 </div>
                 <div className="settingsItem">
                     <header>User Identification</header>
-                    <MenuToogle title="Require Login" status={false} />
+                    <MenuToogle title="Secure Login(Password). Turn off for Username only(Free use)" status={identification} onchange={()=>{setIdentification(!identification)}} />
                 </div>
                 <div className="settingsItem">
-                    <header>File Attachments</header>
-                    <MenuToogle title="Allow Attachments" status={false} />
+                    <header>File Attachments(Comming Soon)</header>
+                    <MenuToogle title="Allow Attachments(Comming Soon)" status={false} />
                 </div>
             </div>
         </div>

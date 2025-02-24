@@ -19,22 +19,28 @@ export default function Dashboard() {
     return (
         <div id='Dashboard'>
             <div id='dashboardsidebar'>
-                <div id="dashboardsidebarHead">
-                    <h1>Teemboom Admin</h1>
+                <div className="dashboardST">
+                    <div id="dashboardsidebarHead">
+                        <h1>Teemboom Admin</h1>
+                    </div>
+                    <div id="dashboardsidebarNew">
+                        <button onClick={() => { navigateTo('/add_domain') }}>Register Your Domain</button>
+                    </div>
+                    <div id="dashboardsidebarDomains">
+                        {user.owned_domains.map(domain => {
+                            return <p onClick={() => { setSiteDetails(domain) }} key={domain}>{domain}</p>
+                        })}
+                    </div>
                 </div>
-                <div id="dashboardsidebarNew">
-                    <button onClick={() => { navigateTo('/add_domain') }}>Register Your Domain</button>
+
+                <div className="dashboardSD">
+                    <div id="dashboardUser">
+                        <img src={user.profile_pic} alt="" />
+                        <p>{user.username}</p>
+                    </div>
+                    <button onClick={() => { dispatch(logout()) }} className='action_button' id='dashboardLogout'>Logout</button>
+                    <button onClick={() => { window.location.href = "https://teemboom.com/bugs" }} className='action_button' id='dashboardBugs'>Report Bugs</button>
                 </div>
-                <div id="dashboardsidebarDomains">
-                    {user.owned_domains.map(domain => {
-                        return <p onClick={() => { setSiteDetails(domain) }} key={domain}>{domain}</p>
-                    })}
-                </div>
-                <div id="dashboardUser">
-                    <img src={user.profile_pic} alt="" />
-                    <p>{user.username}</p>
-                </div>
-                <button onClick={() => { dispatch(logout()) }} className='action_button' id='dashboardLogout'>Logout</button>
             </div>
             <div id="dashboardMain">
                 <h1>{currentSite ? currentSite._id : ''}</h1>
