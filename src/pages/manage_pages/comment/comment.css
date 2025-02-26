@@ -6,6 +6,9 @@
     flex-wrap: wrap;
     padding: 5px;
 }
+.mcomment .mcomment{
+    margin-bottom: 0px;
+}
 .mcommentdisapproved{
     background: rgb(255, 224, 224);
 }
@@ -43,7 +46,7 @@
 
 
 .mcommentActions{
-    width: 100;
+    width: 100%;
     margin-top: 5px;
     padding-left: 63px;
 }
@@ -53,4 +56,11 @@
     border: 1px var(--su-bg) solid;
     border-radius: 3px;
     font-size: 2.3em;
+}
+
+#nestedComments{
+    width: 100%;
+    height: fit-content;
+    padding-left: 50px;
+    padding-top: 20px;
 }

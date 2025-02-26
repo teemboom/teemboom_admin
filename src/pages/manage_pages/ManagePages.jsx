@@ -20,8 +20,28 @@ export default function ManagePage() {
     async function loadPage(page) {
         setCurrentPage(page)
         const data = await apiClient.post('comment/get_comments', { page_id: page })
-        setComments(data.data.data)
+        setComments(organizeComments(data.data.data))
     }
+    function organizeComments (comments) {
+        const commentMap = new Map();
+        comments.forEach(comment => commentMap.set(comment._id, { ...comment, replies: [] }));
+
+        const rootComments = [];
+        comments.forEach(comment => {
+            if (comment.parent_id) {
+                const parent = commentMap.get(comment.parent_id);
+                if (parent) {
+                    parent.replies.push(commentMap.get(comment._id));
+                }
+            } else {
+                rootComments.push(commentMap.get(comment._id));
+            }
+        });
+        
+        rootComments.sort((a, b) => (b.pinned === true ? -1 : 0) - (a.pinned === true ? -1 : 0));
+
+        return rootComments;
+    };
 
     const removeComment = (id) => {
         setComments((prevComments) => prevComments.filter(comment => comment._id !== id));
@@ -58,7 +78,6 @@ export default function ManagePage() {
 
     useEffect(() => {
         getPages()
-        return () => { };
     }, []);
     return (
         <>
@@ -85,7 +104,7 @@ export default function ManagePage() {
                     </div>
                     <div id="mpComments">
                         {comments.map(comment => {
-                            return <Comment key={comment._id} data={comment} onRemove={removeComment} />
+                            return <Comment key={comment._id} data={comment} onRemove={removeComment} top={true} />
                         })}
                     </div>
                 </div>
