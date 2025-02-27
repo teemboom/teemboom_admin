@@ -55,7 +55,7 @@ apiClient.interceptors.response.use(
 
                 try {
                     const { data } = await axios.post(
-                        "http://api-admin.teemboom.com/user/refresh",
+                        "https://api-admin.teemboom.com/user/refresh",
                         {},
                         {
                           headers: { Authorization: `Bearer ${refreshToken}` },
