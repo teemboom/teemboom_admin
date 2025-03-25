@@ -2,38 +2,82 @@
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 30px 5%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    padding: var(--spacing-xl) 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-xl);
 }
 
 .settingsItem{
-    width: 45%;
-    border-radius: 5px;
+    width: 100%;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
-    background: var(--ext-bg);
-    margin-bottom: 30px;
-    padding: 20px;
+    background: white;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
 }
+
+.settingsItem:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
 .settingsItem header{
-    font-size: 4em;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 15px;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
 }
+
 .settingsItem h3{
-    font-size: 4em;
+    font-size: 1.125rem;
     font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
 }
 
 #settingsSave{
-    padding: 5px 15px;
+    padding: var(--spacing-sm) var(--spacing-lg);
     margin-left: auto;
-    background: var(--light-blue);
-    border-radius: 4px;
-    box-shadow: 1px 1px 1px 1px #000
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+#settingsSave:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
 }
 
 .stcursor{
     cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #settingsMain {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-lg) var(--spacing-md);
+        gap: var(--spacing-lg);
+    }
+    
+    .settingsItem {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .settingsItem header {
+        font-size: 1.125rem;
+    }
+    
+    .settingsItem h3 {
+        font-size: 1rem;
+    }
 }

@@ -39,7 +39,7 @@ export default function Dashboard() {
                         <p>{user.username}</p>
                     </div>
                     <button onClick={() => { dispatch(logout()) }} className='action_button' id='dashboardLogout'>Logout</button>
-                    <button onClick={() => { window.location.href = "https://teemboom.com/bugs" }} className='action_button' id='dashboardBugs'>Report Bugs</button>
+                    <button onClick={() => { window.location.href = "https://teemboom.com/community/bugs/" }} className='action_button' id='dashboardBugs'>Report Bugs</button>
                 </div>
             </div>
             <div id="dashboardMain">

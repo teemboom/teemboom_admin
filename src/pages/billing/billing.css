@@ -1,16 +1,26 @@
 #bUpgradeBtn{
     margin-left: auto;
-    background: var(--light-blue);
+    background: var(--primary);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+#bUpgradeBtn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
 }
 
 #bMain{
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 30px 5%;
+    padding: var(--spacing-xl) 5%;
     display: flex;
     justify-content: space-between;
-    gap: 40px;
+    gap: var(--spacing-xl);
 }
 
 #bMainMain{
@@ -18,37 +28,46 @@
 }
 #bCurrent{
     width: 100%;
-    background: var(--ext-bg);
-    border-radius: 6px;
-    border: 1px var(--su-bg) solid;
-    margin-bottom: 40px;
-    padding: 20px;
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
 }
 .bCitem{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: end;
-    padding: 10px 0;
+    align-items: flex-end;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.bCitem:last-child {
+    border-bottom: none;
 }
 #bCurrent header{
-    font-size: 4em;
+    font-size: 1.5rem;
     font-weight: 600;
+    color: var(--text-primary);
 }
 #bCurrent p{
-    font-size: 2.5em;
+    font-size: 1rem;
+    color: var(--text-secondary);
 }
 #bCurrent p i{
-    font-size: 230%;
+    font-size: 1.5rem;
     font-weight: 600;
+    color: var(--primary);
 }
 #bUsage{
     width: 100%;
     height: 200px;
-    background: var(--ext-bg);
-    border-radius: 6px;
-    border: 1px var(--su-bg) solid;
-    padding: 20px;
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
 }
 
 
@@ -57,18 +76,46 @@
 }
 #bHistory{
     width: 100%;
-    background: var(--ext-bg);
-    border-radius: 6px;
-    border: 1px var(--su-bg) solid;
-    padding: 15px;
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
 }
 #BHheader{
-    font-size: 3.5em;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 15px;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
 }
 #bHistory p{
-    /* text-align: center; */
-    font-size: 2.5em;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #bMain {
+        flex-direction: column;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    #bMainMain,
+    #bMainSide {
+        width: 100%;
+    }
+    
+    #bCurrent header {
+        font-size: 1.25rem;
+    }
+    
+    .bCitem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
 }

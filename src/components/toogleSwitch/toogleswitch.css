@@ -23,5 +23,5 @@
   
   .on {
     transform: translateX(20px);
-    background: var(--light-green);
+    background: var(--success);
   }

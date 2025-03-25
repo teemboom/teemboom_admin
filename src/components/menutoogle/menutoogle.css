@@ -6,7 +6,7 @@
     justify-content: space-between;
 }
 .menuToogle p{
-    font-size: 3em;
+    font-size: 1em;
     color: var(--text-color-light)
 }
 .menuToogleButton{

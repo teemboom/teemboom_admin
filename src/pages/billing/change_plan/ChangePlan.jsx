@@ -16,23 +16,27 @@ export default function BillingPlans() {
   };
 
   return (
-    <div className="BPcontainer">
-      <div className="BPplans-grid">
+    <div>
+      <div className="hero">
+        <h1>Choose Your Plan</h1>
+        <p>Select the best plan that suits your needs.</p>
+      </div>
+      <div className="plans">
         {plans.map((plan) => (
           <div
             key={plan.name}
-            className="BPplan-card"
+            className={`plan-card ${selectedPlan === plan.name ? 'selected' : ''}`}
           >
-            <h2 className="BPplan-name">{plan.name}</h2>
-            <p className="BPplan-price">{plan.price}</p>
-            <ul className="BPplan-features">
+            <h2 className="plan-name">{plan.name}</h2>
+            <p className="plan-price">{plan.price}</p>
+            <ul className="plan-features">
               {plan.features.map((feature, index) => (
-                <li key={index} className="BPfeature">✔ {feature}</li>
+                <li key={index} className="plan-feature">✔ {feature}</li>
               ))}
             </ul>
             <button
               onClick={() => handleSelectPlan(plan)}
-              className="BPselect-button"
+              className="select-button"
             >
               Select
             </button>

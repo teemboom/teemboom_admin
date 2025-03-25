@@ -38,7 +38,7 @@ export default function ManagePage() {
             }
         });
         
-        rootComments.sort((a, b) => (b.pinned === true ? -1 : 0) - (a.pinned === true ? -1 : 0));
+        rootComments.sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
 
         return rootComments;
     };

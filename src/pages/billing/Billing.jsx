@@ -10,7 +10,7 @@ export default function BillingPage() {
             <div id="mpTopBar">
                 <button onClick={() => { navigateTo("/") }} className="action_button">&lt; Dashboard</button>
                 <p>{currentSite._id}</p>
-                <button id="bUpgradeBtn" onClick={()=>{navigateTo("/billing/change_plan")}} className="action_button">Change Plan</button>
+                {/* <button id="bUpgradeBtn" onClick={()=>{navigateTo("/billing/change_plan")}} className="action_button">Change Plan</button> */}
             </div>
             <div id="bMain">
                 <div id="bMainMain">

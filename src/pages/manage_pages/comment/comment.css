@@ -1,66 +1,98 @@
 .mcomment{
     width: 100%;
     display: flex;
-    margin-bottom: 35px;
-    display: flex;
+    margin-bottom: var(--spacing-lg);
     flex-wrap: wrap;
-    padding: 5px;
+    padding: var(--spacing-sm);
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+.mcomment:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
 }
 .mcomment .mcomment{
     margin-bottom: 0px;
 }
 .mcommentdisapproved{
-    background: rgb(255, 224, 224);
+    background: rgba(255, 224, 224, 0.5);
 }
 .mcommentProfile{
     width: 40px;
-    margin-right: 13px;
+    margin-right: var(--spacing-md);
     flex-shrink: 0;
 }
 .mcommentProfile img{
     width: 100%;
     height: 40px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 1px solid var(--border-color);
 }
 
 
 .mcommentContent{
     width: calc(100% - 65px);
-    padding-top: 5px;
+    padding-top: var(--spacing-sm);
 }
 .mcommenttime{
-    font-size: 2em;
+    font-size: 0.75rem;
+    color: var(--text-light);
 }
 .mcommentname{
-    font-size: 2.5em;
+    font-size: 1rem;
     font-weight: 600;
-    margin-top: 5px;
+    color: var(--text-primary);
+    margin-top: var(--spacing-xs);
 }
 .mcommenttext{
     width: 100%;
-    margin: 7px 0;
-    border-top: 1px var(--su-bg) solid;
-    padding: 5px;
-    font-size: 2.6em;
+    margin: var(--spacing-sm) 0;
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-sm);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
 }
 
 
 .mcommentActions{
     width: 100%;
-    margin-top: 5px;
+    margin-top: var(--spacing-sm);
     padding-left: 63px;
 }
 .mcommentActions button{
-    padding: 5px 15px;
-    margin-right: 15px;
-    border: 1px var(--su-bg) solid;
-    border-radius: 3px;
-    font-size: 2.3em;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-right: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    background: white;
+    transition: all 0.2s ease;
+}
+.mcommentActions button:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary-dark);
 }
 
 #nestedComments{
     width: 100%;
     height: fit-content;
-    padding-left: 50px;
-    padding-top: 20px;
+    padding-left: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mcommentContent {
+        width: 100%;
+    }
+    
+    .mcommentActions {
+        padding-left: 0;
+    }
 }

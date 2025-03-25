@@ -1,86 +1,150 @@
 #mpTopBar{
     width: 100%;
-    padding: 15px 10px;
-    border-bottom: 1px var(--border-color) solid;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 #mpTopBar .action_button{
-    padding: 8px 15px;
+    padding: var(--spacing-sm) var(--spacing-md);
 }
 #mpTopBar p{
-    margin-left: 10px;
-    font-size: 3em;
+    margin-left: var(--spacing-md);
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0;
+    margin-left: var(--spacing-md);
 }
 
 #mpMain{
     width: 100%;
     display: flex;
+    background-color: var(--ma-bg);
 }
 #mpSide{
     width: 300px;
     flex-shrink: 0;
-    padding: 10px 15px;
+    padding: var(--spacing-lg);
+    background: white;
+    border-right: 1px solid var(--border-color);
+    height: calc(100vh - 60px);
+    overflow-y: auto;
 }
 #mpSideSearch input{
     width: 100%;
-    background: transparent;
-    height: 30px;
-    border: 1px var(--border-color) solid;
-    padding: 0 2%;
+    background: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+#mpSideSearch input:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 #mpSidePages{
     width: 100%;
-    margin-top: 20px;
+    margin-top: var(--spacing-lg);
 }
 #mpSidePages p{
-    font-size: 2.7em;
-    margin-bottom: 12px;
-    line-height: 140%;
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
     cursor: pointer;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
 }
-
-
-
+#mpSidePages p:hover {
+    background-color: var(--ma-bg);
+    color: var(--primary);
+}
 
 #mpPage{
     width: 100%;
-    border-left: 3px var(--border-color) solid;
-    padding: 10px;
+    padding: var(--spacing-lg);
+    background: white;
 }
 #mpCurrentPage{
-    font-size: 2.5em;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
 }
 
 #mpFilterBar{
     width: 100%;
-    padding: 10px 5px;
-    background-color: #fff;
-    margin: 15px 0;
+    padding: var(--spacing-md);
+    background-color: white;
+    margin: var(--spacing-md) 0;
     display: flex;
+    align-items: center;
     box-shadow: var(--shadow);
-    border-radius: 5px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
 }
 #mpFilterSearch{
     width: 100%;
-    height: 30px;
-    padding: 0 2%;
-    border: 1px var(--border-color) solid;
-    border-radius: 5px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+#mpFilterSearch:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 #mpFilterBar button{
-    padding: 8px 15px;
-    background: var(--su-bg);
-    font-size: 2.4em;
-    border-radius: 3px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--primary);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
     flex-shrink: 0;
-    margin-left: 13px;
-    margin-right: 5px;
+    margin-left: var(--spacing-md);
+    transition: all 0.2s ease;
 }
-
-
+#mpFilterBar button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
 
 #mpComments{
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+    padding: var(--spacing-md);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #mpMain {
+        flex-direction: column;
+    }
+    
+    #mpSide {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    #mpFilterBar {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    #mpFilterBar button {
+        width: 100%;
+        margin: var(--spacing-xs) 0;
+    }
 }
