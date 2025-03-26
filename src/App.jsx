@@ -15,15 +15,15 @@ import { setSite } from './redux/siteSlice'
 import SiteColors from './pages/settings/site_colors/SiteColors'
 import SiteLayout from './pages/settings/site_layout/SiteLayout'
 import BillingPlans from './pages/billing/change_plan/ChangePlan'
-
+import { Provider } from 'react-redux'
+import store from './redux/store'
+import Popup from './components/Popup'
 
 const NavigationSetter = () => {
   const navigate = useNavigate();
   setNavigate(navigate); // Store the navigate function globally
   return null; // This component doesn't render anything
 };
-
-
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null)
@@ -73,26 +73,32 @@ function App() {
     checkAuth();
   }, []);
 
-
   if (isAuthenticated === true) {
     return (
-      <Router>
-        <NavigationSetter />
-        <Routes>
-          <Route path='/' element={<Dashboard />} />
-          <Route path='/add_domain' element={<AddDomain />} />
-          <Route path='/manage_pages' element={<ManagePage />} />
-          <Route path='/settings' element={<Settings />} />
-          <Route path='/settings/site_colors' element={<SiteColors />} />
-          <Route path='/settings/site_layout' element={<SiteLayout />} />
-          <Route path='/billing' element={<BillingPage />} />
-          <Route path='/billing/change_plan' element={<BillingPlans />} />
-        </Routes>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <NavigationSetter />
+          <Popup />
+          <Routes>
+            <Route path='/' element={<Dashboard />} />
+            <Route path='/add_domain' element={<AddDomain />} />
+            <Route path='/manage_pages' element={<ManagePage />} />
+            <Route path='/settings' element={<Settings />} />
+            <Route path='/settings/site_colors' element={<SiteColors />} />
+            <Route path='/settings/site_layout' element={<SiteLayout />} />
+            <Route path='/billing' element={<BillingPage />} />
+            <Route path='/billing/change_plan' element={<BillingPlans />} />
+          </Routes>
+        </Router>
+      </Provider>
     )
   }
   else if (isAuthenticated === false) {
-    return <SignIn />
+    return (
+      <Provider store={store}>
+        <SignIn />
+      </Provider>
+    )
   }
 }
 

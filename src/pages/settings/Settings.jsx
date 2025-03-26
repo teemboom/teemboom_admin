@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import apiClient from "../../services/apiClient";
 import { setSite } from "../../redux/siteSlice";
-
+import { showPopup } from "../../redux/popupSlice";
 export default function Settings() {
     const dispatch = useDispatch()
     const currentSite = useSelector((state) => state.site.site)
@@ -30,7 +30,7 @@ export default function Settings() {
         if (iden !== currentSite.identification) changes.identification = iden
         
         if (Object.keys(changes).length === 0) {
-            console.log('No changes to save.');
+            dispatch(showPopup('No changes to save.'))
             return;
           }
           
@@ -40,6 +40,7 @@ export default function Settings() {
             // Merge changes into the current site object
             const updatedSite = { ...currentSite, ...changes };
             dispatch(setSite(updatedSite));
+            dispatch(showPopup('Settings saved successfully.'))
           }
     }
 
