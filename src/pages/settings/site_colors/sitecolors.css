@@ -11,59 +11,222 @@
     box-shadow: var(--shadow);
     background-color: var(--ext-bg);
     border-radius: 7px;
-    padding: 15px 20px;
+    padding: 20px;
 }
 #scpanelheader{
-    font-size: 4.3em;
+    font-size: 1.5em;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .scpitem{
     display: flex;
-    padding: 10px 4px;
-    display: flex;
+    align-items: center;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+.scpitem:last-child {
+    border-bottom: none;
 }
 .scpitem header{
-    font-size: 2.5em;
-    font-weight: 600;
-    width: 250px;
+    font-size: 1em;
+    font-weight: 500;
+    width: 200px;
+    color: var(--text-color);
 }
 .scpitemcolor{
-    width: 60px;
-    height: 25px;
-    border: 1px var(--border-color) solid;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.scpitemcolor:hover {
+    transform: scale(1.05);
 }
 .scpitemcolortext{
-    width: 100px;
-    height: 25px;
-    border: 1px var(--border-color) solid;
-    margin-left: 20px;
-    font-size: 2.4em;
-    padding: 0 2%;
+    width: 120px;
+    height: 36px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-left: 12px;
+    font-size: 0.9em;
+    padding: 0 8px;
+    background: var(--input-bg);
+    color: var(--text-color);
 }
-
-
 
 .sctheme{
     width: 100%;
-    padding: 10px;
+    padding: 12px 16px;
     border-radius: 4px;
     box-shadow: var(--shadow);
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 1em;
+    margin-bottom: 8px;
     cursor: pointer;
+    transition: all 0.2s;
+    background: var(--ext-bg);
+    color: var(--text-color);
 }
-
-
-
-
-
-
-
-
+.sctheme:hover {
+    background: var(--hover-bg);
+    transform: translateY(-1px);
+}
 
 #scpreview{
     width: 40%;
     height: 80vh;
+    background: var(--ext-bg);
+    border-radius: 7px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    overflow: auto;
+}
+
+#mpTopBar {
+    display: flex;
+    align-items: center;
+    padding: 16px 30px;
+    gap: 16px;
+    background: var(--ext-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#mpTopBar p {
+    margin: 0;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+#settingsSave {
+    margin-left: auto;
+    padding: 8px 16px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.2s;
+}
+
+#settingsSave:hover {
+    background: var(--primary-dark);
+}
+
+/* Tablet Responsive */
+@media screen and (max-width: 1024px) {
+    #scmain {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    #scpanel {
+        width: 45%;
+    }
+
+    #scpreview {
+        width: 45%;
+    }
+
+    .scpitem header {
+        width: 180px;
+    }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    #scmain {
+        flex-direction: column;
+        padding: 15px;
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
+
+    #scpanel {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #scpreview {
+        width: 100%;
+        height: auto;
+        min-height: calc(100vh - 200px);
+        padding: 20px;
+        overflow: visible;
+    }
+
+    .scpitem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .scpitem header {
+        width: 100%;
+    }
+
+    .scpitemcolortext {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #mpTopBar {
+        padding: 12px 15px;
+    }
+
+    #mpTopBar p {
+        font-size: 0.9em;
+    }
+
+    #settingsSave {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+}
+
+/* Small Mobile Responsive */
+@media screen and (max-width: 480px) {
+    #scmain {
+        padding: 10px;
+    }
+
+    #scpanel {
+        padding: 15px;
+    }
+
+    #scpreview {
+        padding: 15px;
+    }
+
+    #scpanelheader {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    .scpitem {
+        padding: 10px 6px;
+    }
+
+    .scpitem header {
+        font-size: 0.9em;
+    }
+
+    .scpitemcolortext {
+        font-size: 0.8em;
+    }
+
+    #mpTopBar {
+        padding: 10px 12px;
+    }
+
+    #mpTopBar p {
+        font-size: 0.8em;
+    }
+
+    #settingsSave {
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
 }
