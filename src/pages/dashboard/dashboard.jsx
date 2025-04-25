@@ -61,12 +61,12 @@ export default function Dashboard() {
                                     <p>Site Colors &gt;</p>
                                     <p>Site Layout Selection &gt;</p>
                                 </div>
-                                <div onClick={() => { navigateTo("/billing") }} className="dashboardItem">
+                                {/* <div onClick={() => { navigateTo("/billing") }} className="dashboardItem">
                                     <header>Billing</header>
                                     <p>Change App Version / Plan  &gt;</p>
                                     <p>Billing History  &gt;</p>
                                     <p>Usage Statistics &gt;</p>
-                                </div>
+                                </div> */}
                             </>
                         )
                     }

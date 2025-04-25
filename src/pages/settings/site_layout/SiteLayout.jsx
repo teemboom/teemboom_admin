@@ -73,6 +73,7 @@ export default function SiteLayout() {
                     <div onClick={() => { changeTheme('clear_land') }} className="sctheme">Clear Land (Standard)</div>
                     <div onClick={() => { changeTheme('floating_clouds') }} className="sctheme">Floating Clouds (Standard)</div>
                     <div onClick={() => { changeTheme('open_house') }} className="sctheme">Open house (Rapid Fire)</div>
+                    {/* <div onClick={() => { changeTheme('urban_city') }} className="sctheme">Urban City</div> */}
                 </div>
                 <div id="scpreview">
                     <div id="teemboom_comments"></div>

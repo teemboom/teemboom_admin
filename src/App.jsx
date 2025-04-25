@@ -86,8 +86,8 @@ function App() {
             <Route path='/settings' element={<Settings />} />
             <Route path='/settings/site_colors' element={<SiteColors />} />
             <Route path='/settings/site_layout' element={<SiteLayout />} />
-            <Route path='/billing' element={<BillingPage />} />
-            <Route path='/billing/change_plan' element={<BillingPlans />} />
+            {/* <Route path='/billing' element={<BillingPage />} />
+            <Route path='/billing/change_plan' element={<BillingPlans />} /> */}
           </Routes>
         </Router>
       </Provider>

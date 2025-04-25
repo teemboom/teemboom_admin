@@ -1,18 +1,65 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { initializePaddle } from "@paddle/paddle-js";
 import "./changeplan.css";
-
+import { useSelector } from "react-redux";
 const plans = [
   { name: "Free", price: "$0", features: ["Basic support", "Limited features"] },
-  { name: "Plus", price: "$11/mo", features: ["Priority support", "More features"] },
-  { name: "Pro", price: "$65/mo", features: ["24/7 support", "All features"] },
+  { name: "Plus", price: "$11/mo", features: [], paddleId: "pri_01jr1a3k45bnxrgdaxj9jxk9nh" },
+  // { name: "Pro", price: "$65/mo", features: [], paddleId: "pri_01jr1a581na0k75nxshw6c9wq6" },
 ];
 
 export default function BillingPlans() {
+  const currentSite = useSelector((state) => state.site.site)
+  const user = useSelector((state) => state.user.user)
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const [paddleLoaded, setPaddleLoaded] = useState(false);
+  const [paddle, setPaddle] = useState(null);
 
-  const handleSelectPlan = (plan) => {
+  useEffect(() => {
+    // Initialize Paddle
+    initializePaddle({token: 'live_f2d865c5801506505a5d65c5862' }).then(
+      (paddleInstance) => {
+        if (paddleInstance) {
+          setPaddle(paddleInstance);
+        }
+      },
+    );
+    setPaddleLoaded(true);
+  }, []);
+
+  const openCheckout = (plan) => {
+    console.log(plan);
+    paddle?.Checkout.open({
+      items: [{ 
+        priceId: plan.paddleId, 
+        quantity: 1
+      }],
+      customData: {
+        "site_id": currentSite._id,
+        "user_id": user._id
+      }
+    });
+  };
+
+  const handleSelectPlan = async (plan) => {
     setSelectedPlan(plan.name);
-    alert(`You selected the ${plan.name} plan`);
+    
+    if (plan.name === "Free") {
+      alert(`You selected the ${plan.name} plan`);
+      return;
+    }
+
+    if (!paddleLoaded) {
+      alert('Payment system is still loading. Please try again in a moment.');
+      return;
+    }
+
+    try {
+      openCheckout(plan);
+    } catch (error) {
+      console.error('Error opening checkout:', error);
+      alert('There was an error opening the checkout. Please try again.');
+    }
   };
 
   return (
